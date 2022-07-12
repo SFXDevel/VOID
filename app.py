@@ -29,10 +29,10 @@
 # SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                    #
  # ----------------------------------------------------------------------- #
 
-from sqlite3 import SQLITE_CREATE_INDEX
 from PyQt5.QtWidgets import QLabel 
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtWidgets import QWidget
+from PyQt5.QtCore import Qt
 import sys
 
 global screenX
@@ -45,11 +45,13 @@ class WelcomeWindow(QWidget):
         screenObj = app.primaryScreen().availableGeometry()
         screenX = screenObj.width()
         screenY = screenObj.height()
-
+        self.setAutoFillBackground(True)
+        #colorPalette = self.palette()
+        #colorPalette.setColor(self.backgroundRole(), Qt.red)
+        #self.setPalette(colorPalette)
         self.setGeometry(screenX / 10 , screenY / 5 , screenX * 0.8, screenY * 0.7)
         self.setWindowTitle("VOID ~ Welcome")
-
-
+        
 
 if __name__ == "__main__":
     Application = QApplication(sys.argv)
